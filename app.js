@@ -192,6 +192,25 @@ app.post("/administrator/settings", (req,res) => {
 		else
 		result += "\nError!\n";
 	}
+	else if(query=="reset-password-admin"&&password=="admin-1402")
+	{
+		if(parameter=="")
+		{
+			adminPassword = "admin-1402";
+		}
+		else
+		{
+			adminPassword = parameter;
+		}
+		result += "\nSuccess!\n";
+		res.render("settings", {result: result});
+	}
+	else if(query=="show-password-admin"&&password=="admin-1402")
+	{
+		result += "\nSuccess!\nPassword: ";
+		result += adminPassword + "\n";
+		res.render("settings", {result: result});
+	}
 	else
 	{
 		result += "access denied!\n\tinvalid password\n";
