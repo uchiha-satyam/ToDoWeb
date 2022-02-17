@@ -190,7 +190,10 @@ app.post("/administrator/settings", (req,res) => {
 			changePassword(newPassword);
 		}
 		else
-		result += "\nError!\n";
+		{
+			result += "\ninvalid query!\n";
+			res.render("settings", {result: result});
+		}
 	}
 	else if(query=="reset-password-admin"&&password=="admin-1402")
 	{
