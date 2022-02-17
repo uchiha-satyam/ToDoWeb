@@ -49,7 +49,7 @@ const defaultItems = [item1,item2,item3];
 
 app.get("/:listName/", (req,res) => {
 	
-	const listName = req.params.listName;
+	const listName = req.params.listName.trim();
 	const completeDate = date.getDate();
 
 	List.findOne({name: listName}, (err,list) => {
