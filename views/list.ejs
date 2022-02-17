@@ -1,0 +1,39 @@
+<%- include("header") -%>
+
+	<div class="box" id="heading">
+		<h1> <%= listTitle %></h1>
+		<h4> <%= completeDate %> </h4>
+	</div>
+
+	<div class="box">
+		<!-- List item code goes here... -->
+		<% items.forEach((item) => { %>
+			<div class="item">
+				<form action="/<%= listName %>/check" method="post">
+					<input type="hidden"
+						name="checkbox"
+						value="<%= item._id %>"
+					>
+					<input type="checkbox"
+						<% if(item.checked) {%>
+							checked
+						<% } %>
+						onChange="this.form.submit()"
+					>
+					<p> <%= item.name %> </p>
+				</form>
+				<form action="/<%= listName %>/delete" method="post">
+					<button class="trash" type="submit" name="delete" value="<%= item._id %>">
+						<img width="30px" src="/images/trash.png" alt="Delete">
+					</button>
+				</form>
+			</div>
+		<% }); %>
+
+		<form class="item" method="post" action="/<%= listName %>/">
+			<input type="text" name="newItem" placeholder="Add new task..." autocomplete="off">
+			<button class="add" type="submit"><img class="plus" src="/images/plus.png"></button>
+		</form>
+	</div>
+
+<%- include("footer") -%>

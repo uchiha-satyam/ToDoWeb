@@ -1,0 +1,24 @@
+<%- include("header") -%>
+	
+	<div class="box" id="heading">
+		<h1>Server manager</h1>
+		<h4><em>Enter a query and password to continue :-</em></h4>
+	</div>
+	<div class="box">
+		<form action="/administrator/settings" method="post">
+			<div class="item">
+				<label for="query"><strong>Query : </strong></label>
+				<input type="text" name="query" placeholder="Enter a query" autocomplete="off">
+			</div>
+			<div class="item">
+				<label for="parameter"><strong>Parameter : </strong></label>
+				<input type="text" name="parameter" placeholder="Enter a parameter (Optional)" autocomplete="off">
+				<label for="password"><strong>Password : </strong></label>
+				<input type="password" name="password" placeholder="Enter Password">
+				<button class="add" type="submit"><img class="plus" src="/images/plus.png"></button>
+			</div>
+		</form>
+	</div>
+	<textarea name="resultData" id="outputArea" readonly><%=result%></textarea>
+
+<%- include("footer") -%>

@@ -1,0 +1,21 @@
+<%- include("header") -%>
+	
+	<div class="box" id="heading">
+		<h1>Welcome</h1>
+		<h4><em>Enter unique filename to create a new list :-</em></h4>
+	</div>
+	<div class="box">
+		<form action="/" method="post">
+			<div class="item">
+				<label for="listName"><strong>List Name : </strong></label>
+				<input type="text" name="listName" placeholder="Enter new or existing list name" autocomplete="off">
+				<button class="add" type="submit"><img class="plus" src="/images/plus.png"></button>
+			</div>
+			<!-- <div class="item">
+				<label for="password"><strong>Password : </strong></label>
+			<input type="password" name="password" placeholder="Enter new or existing password">
+			</div> -->
+		</form>
+	</div>
+
+<%- include("footer") -%>
