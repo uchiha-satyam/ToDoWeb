@@ -146,7 +146,7 @@ app.get("/administrator/settings", (req,res) => {
 
 app.post("/administrator/settings", (req,res) => {
 	const query = _.kebabCase(req.body.query);
-	const parameter = _.kebabCase(req.body.parameter);
+	const parameter = _.kebabCase(req.body.parameter.trim());
 	const password = req.body.password;
 	result = "";
 	// console.log(query, parameter, password);
