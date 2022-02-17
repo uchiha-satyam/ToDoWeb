@@ -224,7 +224,7 @@ app.post("/administrator/settings", (req,res) => {
 	}
 	else
 	{
-		result += "access denied!\n\tinvalid password\n";
+		result += "access denied!\ninvalid password!\n";
 		res.render("settings", {result: result});
 	}
 
@@ -260,7 +260,7 @@ app.post("/administrator/settings", (req,res) => {
 	{
 		result += "func: deleteData() started !\n";
 		List.deleteMany({}).then(value => {
-			result += "Success!\n\t" + value.deletedCount + " documents deleted\n";
+			result += "Success!\n" + value.deletedCount + " documents deleted\n";
 			result += "task complete !\n";
 			result += "func: deleteData() ended !\n";
 			res.render("settings", {result: result});
@@ -286,10 +286,10 @@ app.post("/administrator/settings", (req,res) => {
 		result += "func: deleteOne() started !\n";
 		List.deleteOne({ name: parameter }).then((value) => {
 			if(value.deletedCount == 0)
-			result += "Failed!\n\tno such document found!\n"
+			result += "Failed!\nno such document found!\n"
 			if(value.deletedCount == 1)
 			result += "Success!\n"
-			result += "\ntask complete !\n";
+			result += "task complete !\n";
 			result += "func: deleteOne() ended !\n";
 			res.render("settings", {result: result});
 		});
@@ -301,8 +301,8 @@ app.post("/administrator/settings", (req,res) => {
 		List.findOne({ name: parameter }).then((value) => {
 			if(value==null)
 			{
-				result += "Failed!\n\tno such document found!\n";
-				result += "\ntask complete !\n";
+				result += "Failed!\nno such document found!\n";
+				result += "task complete !\n";
 				result += "func: findOne() ended !\n";
 				res.render("settings", {result: result});
 			}
@@ -310,7 +310,7 @@ app.post("/administrator/settings", (req,res) => {
 			value.items.forEach((item,i) => {
 				result += "\t" + (i+1) + ") " + item.name + "\t" + item.checked + "\n";
 			});
-			result += "\ntask complete !\n";
+			result += "task complete !\n";
 			result += "func: findOne() ended !\n";
 			res.render("settings", {result: result});
 		});
@@ -322,8 +322,8 @@ app.post("/administrator/settings", (req,res) => {
 		List.findOneAndDelete({ name: parameter }).then((value) => {
 			if(value==null)
 			{
-				result += "Failed!\n\tno such document found!\n";
-				result += "\ntask complete !\n";
+				result += "Failed!\nno such document found!\n";
+				result += "task complete !\n";
 				result += "func: findOneAndDelete() ended !\n";
 				res.render("settings", {result: result});
 			}
@@ -332,7 +332,7 @@ app.post("/administrator/settings", (req,res) => {
 			value.items.forEach((item,i) => {
 				result += "\t\t" + (i+1) + ") " + item.name + "\t" + item.checked + "\n";
 			});
-			result += "\ntask complete !\n";
+			result += "task complete !\n";
 			result += "func: findOneAndDelete() ended !\n";
 			res.render("settings", {result: result});
 		})
@@ -342,8 +342,8 @@ app.post("/administrator/settings", (req,res) => {
 	{
 		result += "func: changePassword() started !\n";
 		adminPassword = newPassword;
-		result += "Success!\n\tadmin password changed\n";
-		result += "\ntask complete !\n";
+		result += "Success!\nadmin password changed\n";
+		result += "task complete !\n";
 		result += "func: changePassword() ended !\n";
 		res.render("settings", {result: result});
 	}
