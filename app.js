@@ -3,9 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const favicon = require("serve-favicon");
 const _ = require("lodash");
+require("dotenv").config();
 const date = require(__dirname + "/date.js");
 
-var adminPassword = "admin-1402"
+var adminPassword = process.env.ADMIN_PASSWORD;
 var result = "";
 
 const app = express();
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(favicon(__dirname + "/public/images/list.png"));
 
-mongoose.connect("mongodb+srv://admin-satyam:admin-1402@todocluster.yekd8.mongodb.net/todoDB", {useNewUrlParser: true});
+mongoose.connect(process.env.DB_LINK, {useNewUrlParser: true});
 
 
 const itemSchema = {
