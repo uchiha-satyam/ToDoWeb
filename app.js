@@ -204,11 +204,11 @@ app.post("/administrator/settings", (req,res) => {
 			res.render("settings", {result: result});
 		}
 	}
-	else if(query=="reset-password-admin"&&password=="admin-1402")
+	else if(query=="reset-password-admin"&&password==process.env.ADMIN_PASSWORD)
 	{
 		if(parameter=="")
 		{
-			adminPassword = "admin-1402";
+			adminPassword = process.env.ADMIN_PASSWORD;
 		}
 		else
 		{
@@ -217,7 +217,7 @@ app.post("/administrator/settings", (req,res) => {
 		result += "\nSuccess!\n";
 		res.render("settings", {result: result});
 	}
-	else if(query=="show-password-admin"&&password=="admin-1402")
+	else if(query=="show-password-admin"&&password==process.env.ADMIN_PASSWORD)
 	{
 		result += "\nSuccess!\nPassword: ";
 		result += adminPassword + "\n";
