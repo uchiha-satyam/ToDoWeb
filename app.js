@@ -181,10 +181,6 @@ app.post("/administrator/settings", (req,res) => {
 		{
 			findOneAndDelete(parameter);
 		}
-		else if(query=="clear-log")
-		{
-			result="";
-		}
 		else if(query=="change-password")
 		{
 			const newPassword = req.body.parameter.trim();
@@ -221,6 +217,28 @@ app.post("/administrator/settings", (req,res) => {
 	{
 		result += "\nSuccess!\nPassword: ";
 		result += adminPassword + "\n";
+		res.render("settings", {result: result});
+	}
+	else if(query=="help")
+	{
+		result += "Server-Manager@v2.04\n\nUsage:\n";
+		result += "Show Collections()\n";
+		result += "Show Documents()\n";
+		result += "Count Documents()\n";
+		result += "Find One(parameter)\n";
+		result += "Find One and Delete(parameter)\n";
+		result += "Delete One(parameter)\n";
+		result += "Delete Data()\n";
+		result += "Change Password(parameter)\n";
+		result += "Show Password Admin()\n";
+		result += "Reset Password Admin()\n";
+		result += "Help()\n";
+		result += "Clear Log()\n";
+		res.render("settings", {result: result});
+	}
+	else if(query=="clear-log")
+	{
+		result = "";
 		res.render("settings", {result: result});
 	}
 	else
