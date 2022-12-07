@@ -1,7 +1,7 @@
 # ToDoWeb
 I created this web application using node.js and mongoDB.
 
-Access the app at https://todo-appweb.herokuapp.com/
+Access the app at https://todo-web.up.railway.app/
 
 For development :
 * Install required node modules using 'npm i' command.
